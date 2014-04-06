@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async</title>
+  <meta name="description" content="Collection of asynchronous patterns.">
+  <meta name="keywords" content="JavaScript, Promise, Emitter, Doors, FSM">
+  <meta name="author" content="Olivier Wietrich">
+  <link rel="stylesheet" href="style.css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+</head>
+<body>
+  <header class="clearfix">
+    <div class="container">
+      <div class="intro">
+        <a href="http://github.com/bredele" target="_blank"><h1>Async</h1></a>
+        <p>A collection of asynchronous patterns for nodejs and browsers.<br>Made by <a href="http://github.com/bredele" target="_blank">Olivier Wietrich</a>.</p>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="container">
+      <h1>Emitter</h1>
+      <p>All the projects below are based on Emitter in order to be consistent and easy to use and learn.</p>
+      <div class="row clearfix">
+        <div class="column half txt-left">
+          <h3><a href="http://github.com/component/emitter" target="_blank">component/emitter</a></h3>
+          <p>An implementation of the publish/subscribe pattern similar to the EventEmitter of nodejs.</p>
+          <br>
+          <p>An emitter is really great to decouple your code. It allows you to define an action and to execute it only when something interesting is happening.</p>
+        </div>
+        <div class="column half txt-left">
+          <pre style='color:#000000;background:#ffffff;'><pre><span style='color:#800000; font-weight:bold; '>var</span> emitter <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> Emitter<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+emitter<span style='color:#808030; '>.</span>on<span style='color:#808030; '>(</span><span style='color:#497bad; '>'data'</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//do something on foo</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+emitter<span style='color:#808030; '>.</span>emit<span style='color:#808030; '>(</span><span style='color:#497bad; '>'data'</span><span style='color:#808030; '>,</span> <span style='color:#497bad; '>'something'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        </pre>
+      </div>
+    </div>
+  </div>
+    <iframe src="http://ghbtns.com/github-btn.html?user=component&repo=emitter&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://github.com/component/emitter" data-text="Emitter - asynchronous pattern" data-via="bredeleca" data-related="bredeleca">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</section>
+<section>
+  <div class="container">
+    <h1>Promise</h1>
+    <p>What would be asynchronous JavaScript without the promises.</p>
+    <div class="row clearfix">
+      <div class="column half txt-left">
+        <h3><a href="http://github.com/bredele/promise" target="_blank">bredele/promise</a></h3>
+        <p>A clean and lightweight implementation of the famous promise pattern following the A+ spec. A promise's state can't change once resolved or rejected (transition).</p>
+        <br>
+        <p>A promise is a kind of proxy for a value not necessarily known at its creation time and is ideal to handle action's eventual success or failure.</p>
+      </div>
+      <div class="column half txt-left">
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#800000; font-weight:bold; '>var</span> promise <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> Promise<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>//a promise is either resolved or rejected</span>
+promise<span style='color:#808030; '>.</span>then<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span>value<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//do something on resolve</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span>reason<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//do something on reject</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+promise<span style='color:#808030; '>.</span>resolve<span style='color:#808030; '>(</span><span style='color:#497bad; '>'just because'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+      </div>
+    </div>
+  </div>
+    <iframe src="http://ghbtns.com/github-btn.html?user=bredele&repo=promise&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://github.com/bredele/promise" data-text="Promise A+ asynchronous pattern" data-via="bredeleca" data-related="bredeleca">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</section>
+<section>
+  <div class="container">
+    <h1>Finite States</h1>
+    <p>A simple finite state machine.</p>
+    <div class="row clearfix">
+      <div class="column half txt-left">
+        <h3><a href="http://github.com/bredele/states" target="_blank">bredele/states</a></h3>
+        <p>The opposite of a promise, a finite state machine has multiple states and can go from one state to an other as many times as you want.</p>
+        <br>
+        <p>States is the ideal solution whenever you need a context (ex: a widget that shows only if you are connected as admin).</p>
+      </div>
+      <div class="column half txt-left">
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#800000; font-weight:bold; '>var</span> states <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> States<span style='color:#808030; '>(</span><span style='color:#497bad; '>'normal'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>//define transition open to locked</span>
+states<span style='color:#808030; '>.</span>add<span style='color:#808030; '>(</span><span style='color:#497bad; '>'normal'</span><span style='color:#808030; '>,</span><span style='color:#497bad; '>'connected'</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//do something on transition</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>,</span> <span style='color:#497bad; '>'admin'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>//trigger transition</span>
+states<span style='color:#808030; '>.</span>emit<span style='color:#808030; '>(</span><span style='color:#497bad; '>'connected'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+      </div>
+    </div>
+  </div>
+    <iframe src="http://ghbtns.com/github-btn.html?user=bredele&repo=states&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://github.com/bredele/states" data-text="Finite state machine - asynchronous pattern" data-via="bredeleca" data-related="bredeleca">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</section>
+<section>
+  <div class="container">
+    <h1>Doors</h1>
+    <p>You won't find this one anywhere else.</p>
+    <div class="row clearfix">
+      <div class="column half txt-left">
+        <h3><a href="http://github.com/bredele/doors" target="_blank">bredele/doors</a></h3>
+        <p>A door has two states (opened and closed) and can switch from one to an other indefinitely. Doors is the opposite of a finite state machine, a transition is trigerred by one or several conditions (or locks). To be opened, a door needs to unlock all locks and one lock is enough to close the door.</p>
+        <br>
+        <p>For example, doors is ideal for formular validation (required fields are locks), asynchronous initialization, etc.</p>
+      </div>
+      <div class="column half txt-left">
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#800000; font-weight:bold; '>var</span> door <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> Doors<span style='color:#808030; '>(</span><span style='color:#497bad; '>'awesome'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+door<span style='color:#808030; '>.</span>add<span style='color:#808030; '>(</span><span style='color:#497bad; '>'lock1'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+door<span style='color:#808030; '>.</span>add<span style='color:#808030; '>(</span><span style='color:#497bad; '>'lock2'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+door<span style='color:#808030; '>.</span>on<span style='color:#808030; '>(</span><span style='color:#497bad; '>'open'</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//door is opened when lock1
+  //and 2 are unlocked</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+door<span style='color:#808030; '>.</span>unlock<span style='color:#808030; '>(</span><span style='color:#497bad; '>'lock1'</span><span style='color:#808030; '>,</span><span style='color:#497bad; '>'lock2'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+      </div>
+    </div>
+  </div>
+  <iframe src="http://ghbtns.com/github-btn.html?user=bredele&repo=doors&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://github.com/bredele/doors" data-text="Doors asynchronous pattern" data-via="bredeleca" data-related="bredeleca">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</section>
+<section>
+  <div class="container">
+    <h1>Emitter queue</h1>
+    <p>A plugin to queue events.</p>
+    <div class="row clearfix">
+    	   <div class="column half txt-left">
+    	<h3><a href="http://github.com/bredele/emitter-queue" target="_blank">bredele/emitter-queue</a></h3>
+    	<p>An emitter executes an action handler only when the associated event is emitted (it's actually kind of synchronous heh). Queue solves this by queuing events if there is no defined handler.</p>
+    	<br>
+    	<p>It allows you to not worry about the execution order or your application.</p>
+    </div>
+    <div class="column half txt-left">
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#800000; font-weight:bold; '>var</span> emitter <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> Emitter<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+queue<span style='color:#808030; '>(</span>emitter<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+emitter<span style='color:#808030; '>.</span>queue<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'foo'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+emitter<span style='color:#808030; '>.</span>on<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'foo'</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#696969; '>//do something on foo</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+    </div>
+    </div>
+  </div>
+  <iframe src="http://ghbtns.com/github-btn.html?user=bredele&repo=emitter-queue&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://github.com/bredele/emitter-queue" data-text="Queued Emitter - asynchronous pattern" data-via="bredeleca" data-related="bredeleca">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</section>
+<section class="example footer">
+	<h2>You should also try :</h2>
+	<ul>
+		<li><a href="http://github.com/bredele/store" target="_blank">Store</a></li>
+	  <li><a href="http://github.com/bredele/plumby" target="_blank">Plumby</a></li>
+  </ul>
+  <p class="license">Released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a></p>
+</section>
+</body>
+</html>
