@@ -36,14 +36,14 @@ promise.then(function(value) {
 promise.resolve('because');
 ```
 
-## States
+## Mood
 
   > finite state machine
 
-  **[states](https://github.com/bredele/states)** is a finite state machine based on [emitter](http://github.com/component/emitter). It allows you to define transitions from one state to an other.
+  **[mood](https://github.com/bredele/mood)** is a finite state machine based on [emitter](http://github.com/component/emitter). It allows you to define transitions from one state to an other.
 
 ```js
-var states = new State('open');
+var states = new Mood('open');
 
 // transition open to locked
 states.add('open','lock', function() {
